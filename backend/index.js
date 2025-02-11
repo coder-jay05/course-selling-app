@@ -22,8 +22,13 @@ app.use(fileUpload({
     tempFileDir: '/tmp/'
 }));
 
+
+const allowed = [
+    "https://course-selling-app-ruddy.vercel.app/"
+]
 app.use(cors({
-    origin:process.env.FRONTEND_URL,
+    origin:allowed,
+    // origin:process.env.FRONTEND_URL,
     credentials:true,
     methods:["GET","POST","DELETE","PUT"],
     allowedHeaders:["Content-Type","Authorization"],
