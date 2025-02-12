@@ -79,7 +79,13 @@ const Home = () => {
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/api/v1/course/courses`
           ,
-          { withCredentials: true }
+          // { withCredentials: true }
+          {
+            Credentials:"include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
         );
         console.log(response.data.courses);
         setCourses(response.data.courses);
