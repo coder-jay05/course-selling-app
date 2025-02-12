@@ -24,7 +24,7 @@ app.use(fileUpload({
 
 app.use(
     cors({
-         origin: '*',
+        origin: ["https://course-selling-app-ruddy.vercel.app"],
         credentials: true,
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["Content-Type", "Authorization"],
