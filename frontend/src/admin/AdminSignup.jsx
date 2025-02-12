@@ -3,7 +3,7 @@ import logo from "../../public/symbol.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { BACKEND_URL } from "../utils/utils";
+
 
 const AdminSignup = () => {
 
@@ -18,7 +18,7 @@ const AdminSignup = () => {
   const handleSubmit= async(e)=>{
     e.preventDefault();
     try {
-     const response = await axios.post(`${BACKEND_URL }/admin/signup`,{
+     const response = await axios.post(`${import.meta.env.Vite_BACKEND_URL}/admin/signup`,{
         firstName,
         lastName,
         email,

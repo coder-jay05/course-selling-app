@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
-import { BACKEND_URL } from '../utils/utils'
 
 const CourseCreate = () => {
 
@@ -44,7 +43,7 @@ const handleCreateCourse=async(e)=>{
   }
 
   try {
-    const response =await axios.post(`${BACKEND_URL }/course/create`,formData,{
+    const response =await axios.post(`${import.meta.env.Vite_BACKEND_URL}/course/create`,formData,{
       headers:{
         Authorization:`Bearer ${token}`
       },

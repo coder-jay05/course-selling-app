@@ -9,7 +9,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import toast from "react-hot-toast";
-import { BACKEND_URL } from "../utils/utils";
 
 const Home = () => {
   const [courses, setCourses] = useState([]);
@@ -37,9 +36,12 @@ const Home = () => {
 
   const handleLogout = async () => {
     try {
-      const response = axios.get(`${BACKEND_URL }/user/logout`, {
-        withCredentials: true,
-      });
+      const response = axios.get(
+        `${import.meta.env.Vite_BACKEND_URL}/user/logout`,
+        {
+          withCredentials: true,
+        }
+      );
       toast.success((await response).data.message);
       localStorage.removeItem("user");
 
@@ -53,9 +55,12 @@ const Home = () => {
   // updated code
   const handleLogoutAdmin = async () => {
     try {
-      const response = axios.get(`${BACKEND_URL }/admin/logout`, {
-        withCredentials: true,
-      });
+      const response = axios.get(
+        `${import.meta.env.Vite_BACKEND_URL}/admin/logout`,
+        {
+          withCredentials: true,
+        }
+      );
       toast.success((await response).data.message);
       localStorage.removeItem("admin");
 
@@ -70,7 +75,7 @@ const Home = () => {
     const fetcCourses = async () => {
       try {
         const response = await axios.get(
-          `${BACKEND_URL }/course/courses`,
+          `${import.meta.env.Vite_BACKEND_URL}/course/courses`,
           { withCredentials: true }
         );
         console.log(response.data.courses);
@@ -133,12 +138,11 @@ const Home = () => {
           </div>
 
           {/* RIGHT DIV  */}
-         
 
           {/* updated code */}
 
           {isLoggedIn || isLoggedInAdmin ? (
-          <div className="space-x-4">
+            <div className="space-x-4">
               <button
                 onClick={isLoggedIn ? handleLogout : handleLogoutAdmin}
                 className="bg-transparent text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-black font-bold"
@@ -157,26 +161,25 @@ const Home = () => {
           ) : (
             <>
               <div className="space-x-4">
-
-              <Link
-                to={"/admin/login"}
-                className="bg-transparent text-white px-2 py-2 border border-white rounded hover:bg-white hover:text-black font-bold"
+                <Link
+                  to={"/admin/login"}
+                  className="bg-transparent text-white px-2 py-2 border border-white rounded hover:bg-white hover:text-black font-bold"
                 >
-                Admin Login
-              </Link>
-              <Link
-                to={"/login"}
-                className="bg-transparent text-white px-2 py-2 border border-white rounded hover:bg-white hover:text-black font-bold"
-              >
-                Login
-              </Link>
-              <Link
-                to={"/signup"}
-                className="bg-transparent text-white px-2 py-2 border border-white rounded hover:bg-white hover:text-black font-bold"
+                  Admin Login
+                </Link>
+                <Link
+                  to={"/login"}
+                  className="bg-transparent text-white px-2 py-2 border border-white rounded hover:bg-white hover:text-black font-bold"
                 >
-                Signup
-              </Link>
-                </div>
+                  Login
+                </Link>
+                <Link
+                  to={"/signup"}
+                  className="bg-transparent text-white px-2 py-2 border border-white rounded hover:bg-white hover:text-black font-bold"
+                >
+                  Signup
+                </Link>
+              </div>
             </>
           )}
 

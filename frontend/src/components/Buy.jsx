@@ -3,7 +3,7 @@ import React, {  useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { BACKEND_URL } from "../utils/utils";
+
 
 const Buy = () => {
   const { courseId } = useParams();
@@ -18,6 +18,8 @@ const Buy = () => {
 
 
 
+  
+
   const handlePurchase = async () => {
     
     if (!token) {
@@ -29,7 +31,7 @@ const Buy = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        `${BACKEND_URL }/course/buy/${courseId}`,
+        `${import.meta.env.Vite_BACKEND_URL  }/api/course/buy/${courseId}`,
         {},
         {
           headers: {

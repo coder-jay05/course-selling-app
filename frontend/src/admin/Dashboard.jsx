@@ -3,13 +3,13 @@ import React from "react";
 import toast from "react-hot-toast";
 import { GrUserAdmin } from "react-icons/gr";
 import { Link } from "react-router-dom";
-import { BACKEND_URL } from "../utils/utils";
+
 
 const Dashboard = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.get(
-        `${BACKEND_URL }/admin/logout`,
+        `${import.meta.env.Vite_BACKEND_URL}/admin/logout`,
         {
           withCredentials: true,
         }
