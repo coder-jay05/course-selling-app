@@ -22,31 +22,16 @@ app.use(fileUpload({
     tempFileDir: '/tmp/'
 }));
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://course-selling-app-ruddy.vercel.app/"); // Or "*" for all origins in development
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Important for POST
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+app.use(
+    cors({
+      origin: process.env.FRONTEND_URL,
+      credentials: true,
+      methods: ["GET", "POST", "PUT", "DELETE"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+    })
   );
-  
-
-    next();
-  
-});
 
 
-// const allowed = [
-//     "https://course-selling-app-ruddy.vercel.app/"
-// ]
-// app.use(cors({
-//     origin:allowed,
-//     // origin:process.env.FRONTEND_URL,
-//     credentials:true,
-//     methods:["GET","POST","DELETE","PUT"],
-//     allowedHeaders:["Content-Type","Authorization"],
-
-// }))
 
 const port = process.env.PORT || 3000;
 const DB_URI = process.env.MONGO_URI;
