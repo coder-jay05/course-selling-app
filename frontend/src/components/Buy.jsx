@@ -31,7 +31,7 @@ const Buy = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        `${import.meta.env.Vite_BACKEND_URL  }/api/course/buy/${courseId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/course/buy/${courseId}`,
         {},
         {
           headers: {

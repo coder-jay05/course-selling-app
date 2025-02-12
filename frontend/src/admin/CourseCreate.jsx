@@ -43,7 +43,7 @@ const handleCreateCourse=async(e)=>{
   }
 
   try {
-    const response =await axios.post(`${import.meta.env.Vite_BACKEND_URL}/course/create`,formData,{
+    const response =await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/course/create`,formData,{
       headers:{
         Authorization:`Bearer ${token}`
       },

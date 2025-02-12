@@ -41,7 +41,7 @@ const Purchases = () => {
 
       try {
         const response = await axios.get(
-          `${import.meta.env.Vite_BACKEND_URL}/user/purchases`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/v1/user/purchases`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

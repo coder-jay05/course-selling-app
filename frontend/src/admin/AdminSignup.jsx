@@ -18,7 +18,7 @@ const AdminSignup = () => {
   const handleSubmit= async(e)=>{
     e.preventDefault();
     try {
-     const response = await axios.post(`${import.meta.env.Vite_BACKEND_URL}/admin/signup`,{
+     const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/admin/signup`,{
         firstName,
         lastName,
         email,

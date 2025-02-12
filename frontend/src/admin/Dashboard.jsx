@@ -9,7 +9,7 @@ const Dashboard = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.Vite_BACKEND_URL}/admin/logout`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/admin/logout`,
         {
           withCredentials: true,
         }

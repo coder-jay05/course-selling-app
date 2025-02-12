@@ -22,7 +22,7 @@ useEffect(() => {
   const fetchCourseData = async()=>{
     try {
       const {data} = await axios.get(
-        `${import.meta.env.Vite_BACKEND_URL}/course/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/course/${id}`,
         {
           withCredentials:true,
         }
@@ -76,7 +76,7 @@ const handleUpdateCourse=async(e)=>{
   }
 
   try {
-    const response =await axios.put(`${import.meta.env.Vite_BACKEND_URL}/course/update/${id}`,formData,{
+    const response =await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/v1/course/update/${id}`,formData,{
       headers:{
         Authorization:`Bearer ${token}`
       },

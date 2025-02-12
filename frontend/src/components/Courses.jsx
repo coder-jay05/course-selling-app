@@ -49,7 +49,7 @@ const Courses = () => {
     const fetcCourses = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.Vite_BACKEND_URL}/course/courses`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/v1/course/courses`,
           { withCredentials: true }
         );
         console.log(response.data.courses);
