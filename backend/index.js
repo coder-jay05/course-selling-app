@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { response } from 'express';
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import { v2 as cloudinary } from 'cloudinary';
@@ -24,12 +24,12 @@ app.use(fileUpload({
 
 app.use(
     cors({
-      origin: process.env.FRONTEND_URL,
-      credentials: true,
-      methods: ["GET", "POST", "PUT", "DELETE"],
-      allowedHeaders: ["Content-Type", "Authorization"],
+        origin: process.env.FRONTEND_URL,
+        credentials: true,
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type", "Authorization"],
     })
-  );
+);
 
 
 
@@ -51,6 +51,10 @@ try {
 //   })
 
 app.use()
+
+app.get('/', (req, res) => {
+    res.send("hello world")
+});
 
 app.use("/api/v1/course", courseRoute);
 app.use("/api/v1/user", userRoute);
