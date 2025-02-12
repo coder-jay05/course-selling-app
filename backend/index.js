@@ -1,4 +1,4 @@
-import express, { response } from 'express';
+import express from 'express';
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import { v2 as cloudinary } from 'cloudinary';
@@ -50,7 +50,6 @@ try {
 //     res.send('Hello World!')
 //   })
 
-app.use()
 
 app.get('/', (req, res) => {
     res.send("hello world")
