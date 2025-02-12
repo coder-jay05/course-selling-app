@@ -75,7 +75,7 @@ const Home = () => {
     const fetcCourses = async () => {
       try {
         const response = await axios.get(
-          console.log(`${import.meta.env.Vite_BACKEND_URL}api/v1/course/courses`)
+          `${import.meta.env.Vite_BACKEND_URL}api/v1/course/courses`
           ,
           { withCredentials: true }
         );
