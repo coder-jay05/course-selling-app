@@ -73,29 +73,21 @@ const Home = () => {
 
   useEffect(() => {
 
-    useEffect(() => {
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/course/courses`)
-        .then(res => res.json())
-        .then(data => console.log("Courses Data:", data))
-        .catch(err => console.log("API Fetch Error:", err));
-    }, []);
     
-
-
-    // const fetcCourses = async () => {
-    //   try {
-    //     const response = await axios.get(
-    //       `${import.meta.env.Vite_BACKEND_URL}/api/v1/course/courses`
-    //       ,
-    //       { withCredentials: true }
-    //     );
-    //     console.log(response.data.courses);
-    //     setCourses(response.data.courses);
-    //   } catch (error) {
-    //     console.log("Error in Fetch Courses", error);
-    //   }
-    // };
-    // fetcCourses();
+    const fetcCourses = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/v1/course/courses`
+          ,
+          { withCredentials: true }
+        );
+        console.log(response.data.courses);
+        setCourses(response.data.courses);
+      } catch (error) {
+        console.log("Error in Fetch Courses", error);
+      }
+    };
+    fetcCourses();
   }, []);
 
   var settings = {
